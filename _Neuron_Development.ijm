@@ -1,4 +1,4 @@
-// _Neuron_Morphology.ijm
+// _Neuron_Development.ijm
 // Morphological description of neurons in culture (Dotti et al. 1988 framework).
 //
 // For each neuron in a single image the user traces:

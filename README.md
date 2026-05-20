@@ -22,4 +22,13 @@ Segments organelles (based for example in TrkB and Rab5 signals) and establishes
 ### Topological distributions
 The idea here is to be able to manipulate and analyse the data about topological distribution of the signal within the axon along the ortogonal axis. Is like doing a transect, but instead you will have as many transects as pixel lines your image has. The macro straightens, delimitates and then gives you a table .txt with the intensity value of every pixel.
 
+###Background NaN and Measure
+A minimal utility to isolate and quantify signal above background in a single channel. It generates a maximum intensity projection of the active stack, splits the channels, and lets you select the one of interest. That channel is duplicated, converted to 32-bit, and thresholded interactively; pixels below the threshold are set to NaN so that subsequent measurements reflect only genuine signal. The result is a single intensity measurement of the thresholded image.
+
+###Intensity Quantification
+It measures ERK (or equivalent) signal in three spatially distinct neuronal compartments: the soma, the nucleus, and two axonal segments of comparable length. The macro splits channels, creates a standard deviation projection of the MAP2 channel and a maximum projection of the tubulin channel, merges them as a composite for reference, and then guides you through tracing each compartment in a loop so that multiple neurons can be processed in a single session. The output is a CSV saved to the desktop with the area and mean intensity of every traced region.
+
+###Basic Neuronal Development
+A semi-automated morphological survey of neurons in culture, built around the five-stage developmental framework described by Dotti, Sullivan and Banker (1988). For each neuron in a picture the macro guides you to trace the cell body, flag and outline lamellipodia when present, and trace every visible neurite as a polyline from the soma to the tip. It records soma area, lamellipodia area, and individual neurite lengths, and appends the distances to the two nearest neighbouring somas. The output is a tidy CSV — one row per neurite — named after the neuronal type, DIV and picture number, ready to be concatenated across sessions and analysed in R or Python.
+
 ***
